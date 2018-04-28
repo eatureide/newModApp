@@ -58,10 +58,15 @@ class AssessmentListMutualEvaluation extends Component {
         })
     }
 
+    on_nomalMenber = () => {
+        console.log(this.props.getMenberList[0])
+    }
+
     on_toggleGroup = e => {
         this.props.dispatch(toggle_group (e))
         this.setState({ group : this.props.groupList.tabs[e-1].tableName },()=>{
             this.on_nomalMenberList()
+            this.on_nomalMenber()
         })
     }
 
