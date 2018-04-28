@@ -1,0 +1,85 @@
+.NavgationBar {
+    width: 15%;
+    height: 100%;
+    background: #2d2c49;
+    overflow: hidden;
+    float: left;
+}
+
+.modiartsLogo {
+    width: 100%;
+    height: 96px;
+    background: url(./img/logo.png) center no-repeat;
+    display: block;
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+.navList li {
+    height: 60px;
+    display: -webkit-box;
+    line-height: 60px;
+    font-size: 14px;
+    color: #737291;
+    cursor: pointer;
+}
+
+.navList li span {
+    width: 30px;
+    height: 60px;
+    margin-left: 60px;
+    margin-right: 25px;
+    display: block;
+}
+
+.navList li:nth-child(1) span{
+    background: url(./img/icon_Assessment.png) center no-repeat;
+}
+
+.navList .active {
+    pointer-events: none;
+}
+
+.navList .active:nth-child(1) span{
+    background: url(./img/icon_Assessment_active.png) center no-repeat;
+}
+
+.navList li:nth-child(2) span{
+    background: url(./img/Half_Year_Assessment.png) center no-repeat;
+}
+
+.navList .active:nth-child(2) span{
+    background: url(./img/Half_Year_Assessment_active.png) center no-repeat;
+}
+
+.navList li:nth-child(3) span{
+    background: url(./img/Ranking.png) center no-repeat;
+}
+
+.navList .active:nth-child(3) span{
+    background: url(./img/Ranking_active.png) center no-repeat;
+}
+
+.navList li:nth-child(4) span{
+    background: url(./img/Personnel_management.png) center no-repeat;
+}
+
+.navList .active:nth-child(4) span{
+    background: url(./img/Personnel_management_active.png) center no-repeat;
+}
+
+.navList li:nth-child(5) span{
+    background: url(./img/System_Information.png) center no-repeat;
+}
+
+.navList .active:nth-child(4) span{
+    background: url(./img/System_Information_active.png) center no-repeat;
+}
+
+.active {
+    background-color: #23233a;
+}
+.active p{
+    color:#fff;
+}
+
