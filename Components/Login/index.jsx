@@ -26,7 +26,7 @@ class Login extends Component {
 
     on_Login = () => {
         this.setState({loginState:'登录中...'})
-        fetch(`api/m_login?pwd=${this.state.passWord}`)
+        fetch(`https://modiarts.com/api/m_login?pwd=${this.state.passWord}`)
         .then(response => {
             if(response.status !== 200){
                 alert('登陆失败，请刷新')
@@ -48,7 +48,7 @@ class Login extends Component {
     }
 
     on_getOption = () => {
-        fetch(`api/get_option`).then(response => {
+        fetch(`https://modiarts.com/api/get_option`).then(response => {
             if(response.status !== 200){
                 alert('获取选项列表失败，请刷新')
                 window.location.reload()

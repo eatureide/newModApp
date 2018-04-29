@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { get_menberList,toggle_group,get_optionId } from './action'
+import { get_menberList,toggle_group,get_optionId,reset_obj_index } from './action'
 import { action_fetch } from '../Loading/action'
 import AssessmentListMemberOption from './AssessmentListMemberOption.jsx'
 import AssessmentListMutualEvaluation from './AssessmentListMutualEvaluation.jsx'
@@ -45,7 +45,7 @@ class AssessmentList extends Component {
         const body = this.parameter(obj)
         
         this.props.dispatch(action_fetch('FETCH_ING'))
-        fetch(`api/view?${body}`).then(response => {
+        fetch(`https://modiarts.com/api/view?${body}`).then(response => {
             if(response.status !== 200){
                 alert('获取选项列表失败，请刷新')
                 window.location.reload()
@@ -74,24 +74,34 @@ class AssessmentList extends Component {
     on_toggleGroup = e => {
         this.props.dispatch(toggle_group (e))
         const tableName = this.props.groupList.tabs[e-1].tableName
-        this.setState({ group:tableName } , () => { this.on_nomalMenberList() })
+        this.setState({ group:tableName } , () => { 
+            this.on_nomalMenberList()
+            this.props.dispatch(reset_obj_index())
+         })
     }
 
     componentDidMount () {
         this.on_nomalMenberList () 
+        this.props.dispatch(reset_obj_index())
     }
 
     render () {
+        
         const { getOption } = this.props
         const getMenberList   = this.props.getMenberList
         const { groupList } = this.props
         const { isLoading } = this.props
-        const { getEvaluation } = this.props
+        const { getEvaluationIndex } = this.props
 
         return (
             <div className="AssessmentList">
-                { getEvaluation.evaluation_state && < AssessmentListMutualEvaluation 
-                obj = { getEvaluation } share_name = { this.state.option_caption } current_group = { this.props.groupList.currentTableName } /> }
+                { 
+                    getEvaluationIndex.evaluation_state && 
+                    < AssessmentListMutualEvaluation
+                        share_name = { this.state.option_caption } 
+                        current_group = { this.props.groupList.currentTableName } 
+                    /> 
+                }
                 { isLoading === 'FETCH_ING' && < Loading /> }
                 <span className="background"></span>
                 <h1>{ this.state.option_caption }月会考核</h1>
@@ -113,7 +123,8 @@ class AssessmentList extends Component {
                        {
                            groupList.tabs.map((item,key)=>{
                                return <GroupList key = { item.id } 
-                               currentIndex = { groupList.currentIndex } {...item} onClick = { this.on_toggleGroup } />
+                               currentIndex = { groupList.currentIndex } {...item} 
+                               onClick = { this.on_toggleGroup }  />
                            })
                        }
                     </ul>
@@ -125,6 +136,7 @@ class AssessmentList extends Component {
                             getMenberList && getMenberList.map((item,key)=> {
                                 return <AssessmentListMemberOption 
                                 key = { item.user_id } 
+                                data_index = { key }
                                 style = { item.select }
                                 user_id = { item.user_id } obj = { item } />
                             })

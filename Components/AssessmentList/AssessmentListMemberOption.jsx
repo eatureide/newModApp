@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { switch_Modify , submit_point , modify_Comprehensive ,
-toggle_share , modify_Typesetting , modify_Form , modify_Detail , modify_Whole , modify_Efficiency , import_obj } from './action'
+toggle_share , modify_Typesetting , modify_Form , modify_Detail , modify_Whole , modify_Efficiency , import_ob_index } from './action'
 import { action_fetch } from '../Loading/action'
 
 class AssessmentListMemberOption extends Component {
@@ -12,7 +12,7 @@ class AssessmentListMemberOption extends Component {
     
     onModify_typesetting = e => {
        let obj = {
-           id : Number(e.target.getAttribute('user_id')) ,
+           id : Number(e.target.getAttribute('data-id')) ,
            value : e.target.value >= 10 ? 9.9 : e.target.value
        }
        this.props.dispatch(modify_Typesetting(obj))
@@ -20,7 +20,7 @@ class AssessmentListMemberOption extends Component {
 
     onModify_form = e => {
         const obj = {
-            id : Number(e.target.getAttribute('user_id')) ,
+            id : Number(e.target.getAttribute('data-id')) ,
             value : e.target.value >= 10 ? 9.9 : e.target.value
         }
         this.props.dispatch(modify_Form(obj))
@@ -47,7 +47,7 @@ class AssessmentListMemberOption extends Component {
         const body = this.parameter(obj)
         this.props.dispatch(submit_point(e))
         this.props.dispatch(action_fetch('FETCH_ING'))
-        fetch(`api/save?${body}`).then(response => {
+        fetch(`https://modiarts.com/api/save?${body}`).then(response => {
             if(response.status !== 200){
                 alert('提交失败，请刷新')
                 window.location.reload()
@@ -79,7 +79,7 @@ class AssessmentListMemberOption extends Component {
 
     onModify_detail = e => {
         const obj = {
-            id : Number(e.target.getAttribute('user_id')) ,
+            id : Number(e.target.getAttribute('data-id')) ,
             value : e.target.value >= 10 ? 9.9 : e.target.value
         }
         this.props.dispatch(modify_Detail(obj))
@@ -87,7 +87,7 @@ class AssessmentListMemberOption extends Component {
 
     onModify_whole = e => {
         const obj = {
-            id : Number(e.target.getAttribute('user_id')) ,
+            id : Number(e.target.getAttribute('data-id')) ,
             value : e.target.value >= 10 ? 9.9 : e.target.value
         }
         this.props.dispatch(modify_Whole(obj))
@@ -95,18 +95,15 @@ class AssessmentListMemberOption extends Component {
 
     onModify_efficiency = e => {
         const obj = {
-            id : Number(e.target.getAttribute('user_id')) ,
+            id : Number(e.target.getAttribute('data-id')) ,
             value : e.target.value >= 10 ? 9.9 : e.target.value
         }
         this.props.dispatch(modify_Efficiency(obj))
     }
 
     on_ModifyDetailed = () => {
-        const e = {
-            state:true,
-            obj : this.props.obj
-        }
-        this.props.dispatch(import_obj(e))
+       const { data_index } = this.props
+       this.props.dispatch(import_ob_index(data_index))
     }
 
     render () {
@@ -126,8 +123,13 @@ class AssessmentListMemberOption extends Component {
             
                 <div className={ style ? 'AssessmentListMemberOption Select' : 'AssessmentListMemberOption' } 
                 key="AssessmentListMemberOption">
-                <div className="AssessmentListMemberAvatar" onClick = { this.on_ModifyDetailed } > <img src = { avatar } alt = { name } /> </div>
+
+                <div className="AssessmentListMemberAvatar"
+                 onClick = { this.on_ModifyDetailed } > <img src = { avatar } alt = { name } />
+                </div>
+
                 <p className="AssessmentListMemberName"> { name } </p>
+
                 <ul className="AssessmentListMemberBase">
                     <li>
                         <span></span>
@@ -135,7 +137,7 @@ class AssessmentListMemberOption extends Component {
                         <input type="text" value = { typesetting } 
                         maxLength = "3"
                         placeholder = "0"
-                        user_id = { user_id } onChange = { this.onModify_typesetting } />
+                        data-id = { user_id } onChange = { this.onModify_typesetting } />
                     </li>
                     <li>
                         <span></span>
@@ -143,7 +145,7 @@ class AssessmentListMemberOption extends Component {
                         <input type="text" value = { form }  
                         maxLength = "3"
                         placeholder = "0"
-                        user_id = { user_id } onChange = { this.onModify_form } />
+                        data-id = { user_id } onChange = { this.onModify_form } />
                     </li>
                     <li>
                         <span></span>
@@ -151,7 +153,7 @@ class AssessmentListMemberOption extends Component {
                         <input type="text" value = { detail } 
                         maxLength = "3"
                         placeholder = "0"
-                        user_id = { user_id } onChange = { this.onModify_detail } />
+                        data-id = { user_id } onChange = { this.onModify_detail } />
                     </li>
                     <li>
                         <span></span>
@@ -159,7 +161,7 @@ class AssessmentListMemberOption extends Component {
                         <input type="text" value = { whole } 
                         maxLength = "3"
                         placeholder = "0"
-                        user_id = { user_id } onChange = { this.onModify_whole } />
+                        data-id = { user_id } onChange = { this.onModify_whole } />
                     </li>
                 </ul>
                 <b className="AssessmentListMemberBorder"></b>
@@ -170,7 +172,7 @@ class AssessmentListMemberOption extends Component {
                         <input type="text" value = { efficiency }
                         maxLength = "3"
                         placeholder = "0"
-                        user_id = { user_id } onChange = { this.onModify_efficiency } />
+                        data-id = { user_id } onChange = { this.onModify_efficiency } />
                     </li>
                     <li>
                         <span></span>

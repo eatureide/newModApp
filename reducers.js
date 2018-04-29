@@ -6,7 +6,7 @@ import getMenberList from './Components/AssessmentList/reducers/getMenberList.js
 import isLoading from './Components/Loading/Loading.js'
 import groupList from './Components/AssessmentList/reducers/groupList.js'
 import getOptionid from './Components/Login/reducers/getOptionid.js'
-import getEvaluation from './Components/AssessmentList/reducers/getEvaluation.js'
+import getEvaluationIndex from './Components/AssessmentList/reducers/getEvaluation.js'
 
 let mod_app = combineReducers({
     getToken ,
@@ -15,7 +15,7 @@ let mod_app = combineReducers({
     optionList ,
     getMenberList ,
     isLoading ,
-    getEvaluation ,
+    getEvaluationIndex ,
     groupList
 })
 
