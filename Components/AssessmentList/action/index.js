@@ -89,7 +89,7 @@ export const modify_Comprehensive = data => {
     }
 }
 
-export const import_ob_index = index => {
+export const import_obj_index = index => {
     return {
         type : 'IMPORT_OBJ_INDEX' ,
         index
@@ -105,5 +105,17 @@ export const reset_obj_index = () => {
 export const reset_evaluation_obj_index = () => {
     return {
         type : 'RESET_EVALUATION_OBJ_INDEX' 
+    }
+}
+
+export const reset_group_list = () => {
+    return {
+        type : 'RESET_GROUP_LIST' 
+    }
+}
+
+export const closeAssessmentListMutualEvaluation = () => {
+    return {
+        type : 'CLOSEASSESSMENTLISTMUTUALEVALUATION'
     }
 }

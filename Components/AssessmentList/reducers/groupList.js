@@ -16,6 +16,8 @@ const groupList = (state = nomalState , action) => {
                 currentIndex : action.id ,
                 currentTableName : state.tabs[action.id-1].tableName
             }
+        case  'RESET_GROUP_LIST' :
+            return nomalState
         default :
             return state
     }

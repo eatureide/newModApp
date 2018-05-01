@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { get_menberList,toggle_group,get_optionId,reset_obj_index } from './action'
+import { get_menberList,toggle_group,get_optionId,reset_obj_index,reset_group_list} from './action'
 import { action_fetch } from '../Loading/action'
 import AssessmentListMemberOption from './AssessmentListMemberOption.jsx'
 import AssessmentListMutualEvaluation from './AssessmentListMutualEvaluation.jsx'
@@ -68,6 +68,7 @@ class AssessmentList extends Component {
             return data
         }).then(data=> {
             this.props.dispatch(get_menberList(data))
+            data.length === 0 && alert('该组暂无成员')
         })
     }
 
@@ -83,15 +84,16 @@ class AssessmentList extends Component {
     componentDidMount () {
         this.on_nomalMenberList () 
         this.props.dispatch(reset_obj_index())
+        this.props.dispatch(reset_group_list())
     }
 
     render () {
         
-        const { getOption } = this.props
-        const getMenberList   = this.props.getMenberList
-        const { groupList } = this.props
-        const { isLoading } = this.props
-        const { getEvaluationIndex } = this.props
+        const { getOption = '' } = this.props
+        const getMenberList = this.props.getMenberList
+        const { groupList = [] } = this.props
+        const { isLoading = false } = this.props
+        const { getEvaluationIndex = {} } = this.props
 
         return (
             <div className="AssessmentList">
@@ -102,6 +104,7 @@ class AssessmentList extends Component {
                         current_group = { this.props.groupList.currentTableName } 
                     /> 
                 }
+                {/* < Loading /> */}
                 { isLoading === 'FETCH_ING' && < Loading /> }
                 <span className="background"></span>
                 <h1>{ this.state.option_caption }月会考核</h1>

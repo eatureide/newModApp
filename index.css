@@ -7,7 +7,7 @@ body {
 body,html,#root,.App{
   width:100%;
   height: 100%;
-  /* height: 1400px; */
+  min-height: 1064px;
   min-width: 1700px;
 }
 
@@ -28,5 +28,5 @@ body,html,#root,.App{
   left: 0;
   z-index: -1;
   pointer-events: none;
-  background-color: #cc3972;
+  background-color: #e34080;
 }

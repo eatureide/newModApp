@@ -4,6 +4,7 @@ import GroupList from './GroupList.jsx'
 import { toggle_group } from './action'
 import { action_fetch } from '../Loading/action'
 import { get_menberList , reset_evaluation_obj_index} from './action'
+import MutualEvaluationBox from './MutualEvaluationBox.jsx'
 
 class AssessmentListMutualEvaluation extends Component {
 
@@ -46,8 +47,9 @@ class AssessmentListMutualEvaluation extends Component {
         }).then( data =>{
             this.props.dispatch(action_fetch('FETCH_END'))
             return data
-        }).then(data=> {
+        }).then(data=> {  
             this.props.dispatch(get_menberList(data))
+            data.length === 0 && alert('该组暂无成员')
         })
     }
 
@@ -59,12 +61,12 @@ class AssessmentListMutualEvaluation extends Component {
 
     render () {  
 
-        const { share_name } = this.props
+        const { share_name = '' } = this.props 
         const groupList  = this.props.groupList
-        const index = this.props.getEvaluationIndex.import_obj_index
-        const obj = this.props.getMenberList[index]
-        const { name } = obj
-
+        const index = this.props.getEvaluationIndex.import_obj_index ? this.props.getEvaluationIndex.import_obj_index : 0
+        const obj = this.props.getMenberList[index] ? this.props.getMenberList[index] : ''
+        const { name = '' } = obj
+        
         return (
             <div className="AssessmentListMutualEvaluation" >
                 <span className="background"></span>
@@ -81,6 +83,8 @@ class AssessmentListMutualEvaluation extends Component {
                        }
                     </ul>
                 </div>
+
+                <MutualEvaluationBox Menber = { obj } />
                
             </div>
         )

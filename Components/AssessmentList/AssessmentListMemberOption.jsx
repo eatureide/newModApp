@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { switch_Modify , submit_point , modify_Comprehensive ,
-toggle_share , modify_Typesetting , modify_Form , modify_Detail , modify_Whole , modify_Efficiency , import_ob_index } from './action'
+toggle_share , modify_Typesetting , modify_Form , modify_Detail , modify_Whole , modify_Efficiency , import_obj_index } from './action'
 import { action_fetch } from '../Loading/action'
 
 class AssessmentListMemberOption extends Component {
@@ -103,7 +103,7 @@ class AssessmentListMemberOption extends Component {
 
     on_ModifyDetailed = () => {
        const { data_index } = this.props
-       this.props.dispatch(import_ob_index(data_index))
+       this.props.dispatch(import_obj_index(data_index))
     }
 
     render () {

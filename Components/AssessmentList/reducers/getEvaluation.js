@@ -9,7 +9,7 @@ const getEvaluationIndex = (state = nomalIndex , action) => {
         case 'IMPORT_OBJ_INDEX' :
             return {
                 import_obj_index : action.index ,
-                evaluation_state : !state.evaluation_state
+                evaluation_state : !nomalIndex.evaluation_state
             }
         case 'RESET_OBJ_INDEX' :
             return {
@@ -20,6 +20,11 @@ const getEvaluationIndex = (state = nomalIndex , action) => {
             return {
                 import_obj_index : nomalIndex.import_obj_index ,
                 evaluation_state : !nomalIndex.evaluation_state
+            }
+        case 'CLOSEASSESSMENTLISTMUTUALEVALUATION' :
+            return {
+                import_obj_index : state.import_obj_index ,
+                evaluation_state : nomalIndex.evaluation_state
             }
         default :
             return state

@@ -31,7 +31,7 @@
     box-sizing: border-box;
     float: right;
     border-radius: 2px;
-    background: #da4e85;
+    background: #e34080;
     cursor: pointer;
     position: relative;
 }
@@ -121,7 +121,8 @@
     background-clip: padding-box;
 }
 .AssessmentListMember::-webkit-scrollbar-track-piece {
-    background-color: rgba(234, 233, 223, 1);
+    /* background-color: rgba(234, 233, 223, 1); */
+    background-color: rgba(255, 255, 255, 1);
     border-left: 1px solid rgba(0, 0, 0, 0);
 }
 
@@ -455,4 +456,372 @@
     margin-right: 30px;
     cursor: pointer;
     line-height: 23px;
+}
+
+.AssessmentListMutualEvaluation .MutualEvaluationBox {
+    width: 1522px;
+    height: 77%;
+    margin: 30px auto 0;
+    -webkit-box-shadow: 0 5px 20px rgba(0,0,0,.3);
+    box-shadow: 0 5px 20px rgba(0,0,0,.3);
+    background: #fff;
+    position: relative;
+}
+
+.AssessmentListMutualEvaluation .MutualEvaluationBox .LeftMenberMessage {
+    float: left;
+    height: 100%;
+    width: 476px;
+    border-right: 1px solid #eae9e9;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.AssessmentListMutualEvaluation .MutualEvaluationBox .LeftMenberMessageAvatar{
+    width: 356px;
+    height: 193px;
+    border-bottom: 1px dotted #eae9e9;
+    margin: 60px auto 0;
+}
+
+.AssessmentListMutualEvaluation .MutualEvaluationBox .LeftMenberMessageAvatar .Avatar {
+    border: 1px solid #eae9e9;
+    border-radius: 100%;
+    width: 100px;
+    height: 100px;
+    position: relative;
+    float: left;
+    background-size: contain !important;
+}
+
+.AssessmentList .LeftMenberMessageAvatar img {
+    width:100%;
+    height: 100%;
+}
+
+.AssessmentList .LeftMenberMessageAvatar .Avatar p {
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    color: #323232;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.AssessmentList .LeftMenberMessageAvatar .Avatar {
+    border: 1px solid #eae9e9;
+    border-radius: 100%;
+    width: 100px;
+    height: 100px;
+    position: relative;
+    background-size: contain!important;
+    float: left;
+}
+
+.AssessmentList .LeftMenberMessageAvatar .Comprehensive {
+    width: 100px;
+    height: 150px;
+    float: right;
+}
+
+.AssessmentList .LeftMenberMessageAvatar .Comprehensive h2 {
+    font-size: 65px;
+    text-align: center;
+    color: #ed4c8b;
+    height: 100px;
+    line-height: 100px;
+}
+
+.AssessmentList .LeftMenberMessageAvatar .Comprehensive p {
+    font-size: 14px;
+    color: #323232;
+    text-align: center;
+    margin-top: 33px;
+}
+
+.AssessmentList .LeftMenberMessageScoreList {
+    width: 356px;
+    /* height: 266px; */
+    border-bottom: 1px dotted #eae9e9;
+    margin: 60px auto 0;
+}
+
+.AssessmentList .LeftMenberMessageScoreList .ScoreList {
+    display: -webkit-box;
+    margin-bottom: 30px;
+}
+
+.AssessmentList .LeftMenberMessageScoreList .ScoreList span {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+}
+
+.AssessmentList .LeftMenberMessageScoreList .ScoreList p {
+    font-size: 14px;
+    color: #323232;
+    margin-left: 10px;
+}
+
+.AssessmentList .LeftMenberMessageScoreList .ScoreList input {
+    width: 44px;
+    height: 21px;
+    text-align: center;
+    border: 1px solid #e34080;
+    color: #e34080;
+    border-radius: 2px;
+    margin-left: 265px;
+    line-height: 21px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.AssessmentList .LeftMenberMessageScoreList li input::-webkit-input-placeholder{
+    color:#e34080;
+}
+
+.AssessmentList .LeftMenberMessageScoreList li:first-child span {
+    background: #cf72ff;
+}
+
+.AssessmentList .LeftMenberMessageScoreList li:nth-child(2) span {
+    background: #8c89fc;
+}
+
+.AssessmentList .LeftMenberMessageScoreList li:nth-child(3) span {
+    background: #58d4c9;
+}
+.AssessmentList .LeftMenberMessageScoreList li:nth-child(4) span {
+    background: #edad69;
+}
+
+.AssessmentList .LeftMenberMessageScoreList-02 {
+    width: 356px;
+    height: 70px;
+    margin: 60px auto 0;
+}
+
+.AssessmentList .LeftMenberMessageScoreList-02 li {
+    display: -webkit-box;
+    margin-bottom: 30px;
+}
+
+.AssessmentList .LeftMenberMessageScoreList-02 li p {
+    font-size: 14px;
+    color: #323232;
+}
+
+.AssessmentList .LeftMenberMessageScoreList-02 li p span {
+    color: #afaeae;
+    font-size: 14px;
+}
+
+.AssessmentList .LeftMenberMessageScoreList-02 li input {
+    width: 44px;
+    height: 21px;
+    text-align: center;
+    border: 1px solid #58d4c9;
+    color: #58d4c9;
+    border-radius: 2px;
+    margin-left: 165px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.AssessmentList .LeftMenberMessageScoreList-02 li input::placeholder {
+    color: #58d4c9;
+}
+
+.AssessmentList .LeftMenberMessageScoreList-02 .LeftMenberMessageIsShare {
+    text-align: center;
+    line-height: 20px;
+    display: block;
+    background: #fff;
+    color: #fff;
+    width: 21px;
+    height: 21px;
+    margin-left: 277px;
+    cursor: pointer;
+    border: 1px solid #e34080;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border-radius: 2px;
+}
+
+.AssessmentList .LeftMenberOption {
+    width: 356px;
+    height: 34px;
+    margin: 15% auto 0;
+    position: relative;
+}
+
+.AssessmentList .LeftMenberOption .LeftMenberOptionButton {
+    line-height: 34px;
+    text-align: center;
+    color: #fff;
+    width: 98px;
+    height: 34px;
+    background: #e34080;
+    border-radius: 3px;
+    cursor: pointer;
+    margin: 0 auto;
+    z-index: 9;
+    position: relative;
+}
+
+.AssessmentList .LeftMenberOption p {
+    line-height: 34px;
+    font-size: 12px;
+    color: #272727;
+    cursor: pointer;
+    z-index: 10;
+    user-select: none;
+    position: absolute;
+}
+
+.AssessmentList .LeftMenberOption p:last-child {
+    top: 0;
+    right: 0;
+}
+
+.AssessmentList .LeftMenberOption p:first-child {
+    top: 0;
+    left: 0;
+}
+
+.MutualEvaluationBox .closeAssessmentListMutualEvaluation {
+    position: absolute;
+    top: 0;
+    right: -27px;
+    color: #fff;
+    cursor: pointer;
+    width: 27px;
+    height: 27px;
+    background: #2d2c49;
+    display: block;
+    text-align: center;
+    line-height: 25px;
+    font-weight: 400;
+    font-size: 15px;
+    -webkit-transition: .2s;
+    -o-transition: .2s;
+    transition: .2s;
+}
+
+.MutualEvaluationBox .closeAssessmentListMutualEvaluation:hover{
+    background: #ed4c8b;
+    transition: .2s;
+}
+
+.AssessmentList .LeftMenberMessageScoreList-02 .LeftMenberMessageIsShare b {
+    width: 100%;
+    height: 100%;
+    background: #e34080;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.AssessmentList .RightMenberReviews {
+    float: left;
+    width: 1046px;
+    height: 100%;
+    position: relative;
+}
+
+.AssessmentList .RightMenberReviews .RightMenberTbale {
+    background: #f5f5f5;
+    height: 77px;
+    display: -webkit-box;
+    border-bottom: 1px solid #e6e6e6;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.AssessmentList .RightMenberReviews .RightMenberTbale li {
+    width: 62px;
+    height: 77px;
+    line-height: 77px;
+    margin-right: 140px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #323232;
+}
+
+.AssessmentList .RightMenberReviews .RightMenberTbale .reviewsCurr {
+    border-bottom: 2px solid #e34080;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.AssessmentList .RightMenberReviews .RightMenberTbale li:first-child {
+    margin-left: 55px;
+}
+
+.AssessmentList .RightMenberReviews .show {
+    height: 743px;
+    overflow-y: scroll;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.AssessmentList .RightMenberReviews .body {
+    margin-left: 60px;
+    font-size: 14px;
+    color: #323232;
+    line-height: 30px;
+}
+
+.AssessmentList .RightMenberReviews h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #323232;
+}
+
+.AssessmentList .RightMenberReviews .RightMenberTips {
+    display: -webkit-box;
+    width: 910px;
+    margin: 0 auto 25px;
+}
+
+.AssessmentList .RightMenberBox {
+    width: 936px;
+    margin-left: 56px;
+}
+
+.AssessmentList .RightMenberReviews .RightMenberTips li {
+    font-size: 14px;
+    color: #323232;
+    margin-right: 115px;
+}
+
+.AssessmentList .RightMenberReviews .RightMenberTips li:first-child {
+    margin-right: 235px;
+}
+
+.AssessmentList .RightMenberReviews .RightMenberTips li:last-child {
+    margin-right: 0;
+}
+
+.AssessmentList .RightMenberReviews .show::-webkit-scrollbar {
+    width: 10px;
+}
+
+.AssessmentList .RightMenberReviews .show::-webkit-scrollbar-thumb {
+    border-radius: 30px;
+    background-color: #808080;
+    background-clip: padding-box;
+}
+.AssessmentList .RightMenberReviews .show::-webkit-scrollbar-track-piece {
+    /* background-color: rgba(234, 233, 223, 1); */
+    background-color: rgba(255, 255, 255, 1);
+    border-left: 1px solid rgba(0, 0, 0, 0);
 }
